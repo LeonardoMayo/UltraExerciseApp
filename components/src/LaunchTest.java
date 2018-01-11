@@ -1,5 +1,6 @@
 import PlanFramework.*;
 import Filewriting.*;
+import UserManagement.Profile;
 import java.io.IOException;
 
 /**
@@ -47,8 +48,17 @@ public class LaunchTest {
 
     //TestSetAdress(exer1);
     WritePlansToFile planWriter = new WritePlansToFile();
+    WriteProfileToFile profileWriter = new WriteProfileToFile();
+    WriteExercisesToFile exerciseWriter = new WriteExercisesToFile();
     try {
+      profileWriter.writeProfile(user);
       planWriter.writePlan(plan1);
+      planWriter.writePlan(plan2);
+      exerciseWriter.writeExcersize(exer1);
+      exerciseWriter.writeExcersize(exer2);
+      exerciseWriter.writeExcersize(exer3);
+      exerciseWriter.writeExcersize(exer4);
+      exerciseWriter.writeExcersize(exer5);
     } catch (IOException e) {
       e.printStackTrace();
     }

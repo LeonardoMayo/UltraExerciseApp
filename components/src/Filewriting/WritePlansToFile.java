@@ -46,8 +46,8 @@ public class WritePlansToFile {
     writer.close();
   }
 
-  public void readPlan(){
-
+  public Plan readPlan(){
+    return null;
   }
 
 }

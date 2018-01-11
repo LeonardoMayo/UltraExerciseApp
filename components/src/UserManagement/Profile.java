@@ -1,3 +1,5 @@
+package UserManagement;
+
 import PlanFramework.Plan;
 import java.util.ArrayList;
 
@@ -64,5 +66,13 @@ public class Profile {
 
   public void setHeight(int height) {
     this.height = height;
+  }
+
+  public ArrayList<Plan> getPlanList() {
+    return planList;
+  }
+
+  public void setPlanList(ArrayList<Plan> planList) {
+    this.planList = planList;
   }
 }
