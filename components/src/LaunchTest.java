@@ -1,5 +1,6 @@
 import PlanFramework.*;
 import Filewriting.*;
+import java.io.IOException;
 
 /**
  * @author Jan Leppich
@@ -45,6 +46,12 @@ public class LaunchTest {
     //newTraining(plan2);
 
     //TestSetAdress(exer1);
+    WritePlansToFile planWriter = new WritePlansToFile();
+    try {
+      planWriter.writePlan(plan1);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   private void TestSetAdress(Exercise exercise) {

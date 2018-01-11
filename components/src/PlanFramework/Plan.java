@@ -78,5 +78,11 @@ public class Plan {
     this.exerciseList = exerciseList;
   }
 
+  public ArrayList<String> getTrainingDates() {
+    return trainingDates;
+  }
 
+  public void setTrainingDates(ArrayList<String> trainingDates) {
+    this.trainingDates = trainingDates;
+  }
 }
