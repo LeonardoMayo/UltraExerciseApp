@@ -8,7 +8,7 @@ public class WriteExercisesToFile {
   public WriteExercisesToFile(){}
 
   public void writeExcersize(Exercise exercise) throws IOException {
-    String dir = "E:\\Projekte\\UltraExerciseApp\\saveddata\\exercises";
+    String dir = System.getProperty("user.dir")+"\\saveddata\\exercises";
     File file = new File(dir, exercise.getName());
     BufferedWriter writer = new BufferedWriter(new FileWriter(file+".exer"));
 
@@ -34,8 +34,20 @@ public class WriteExercisesToFile {
 
   }
 
-  public Exercise readExercise(){
-    return null;
+  public Exercise readExercise(String exerciseName){
+    Exercise exercise = new Exercise(exerciseName);
+    return exercise;
+  }
+
+  public int lineCount(File file) throws IOException {
+    LineNumberReader reader  = new LineNumberReader(new FileReader(file));
+    int cnt = 0;
+    String lineRead = "";
+    while ((lineRead = reader.readLine()) != null) {}
+
+    cnt = reader.getLineNumber();
+    reader.close();
+    return cnt;
   }
 
 }

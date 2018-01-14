@@ -45,25 +45,11 @@ public class LaunchTest {
     plan2.addExerciseToPlan(exer4);
     plan2.addExerciseToPlan(exer5);
 
-    //newTraining(plan1);
-    //newTraining(plan2);
+    newTraining(plan1);
+    newTraining(plan2);
 
-    //TestSetAdress(exer1);
-    WritePlansToFile planWriter = new WritePlansToFile();
-    WriteProfileToFile profileWriter = new WriteProfileToFile();
-    WriteExercisesToFile exerciseWriter = new WriteExercisesToFile();
-    try {
-      profileWriter.writeProfile(user);
-      planWriter.writePlan(plan1);
-      planWriter.writePlan(plan2);
-      exerciseWriter.writeExcersize(exer1);
-      exerciseWriter.writeExcersize(exer2);
-      exerciseWriter.writeExcersize(exer3);
-      exerciseWriter.writeExcersize(exer4);
-      exerciseWriter.writeExcersize(exer5);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    TestSetAdress(exer1);
+
   }
 
   private void TestSetAdress(Exercise exercise) {

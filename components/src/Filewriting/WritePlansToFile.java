@@ -1,11 +1,8 @@
 package Filewriting;
 
 import PlanFramework.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class WritePlansToFile {
@@ -13,7 +10,7 @@ public class WritePlansToFile {
   public WritePlansToFile(){}
 
   public void writePlan(Plan plan) throws IOException {
-    String dir = "E:\\Projekte\\UltraExerciseApp\\saveddata\\plans";
+    String dir = System.getProperty("user.dir")+"\\saveddata\\plans";
     File file = new File(dir, plan.getName());
     BufferedWriter writer = new BufferedWriter(new FileWriter(file+".exer"));
 
@@ -46,8 +43,20 @@ public class WritePlansToFile {
     writer.close();
   }
 
-  public Plan readPlan(){
-    return null;
+  public Plan readPlan(String planName){
+    Plan plan = new Plan(planName);
+    return plan;
+  }
+
+  public int lineCount(File file) throws IOException {
+    LineNumberReader reader  = new LineNumberReader(new FileReader(file));
+    int cnt = 0;
+    String lineRead = "";
+    while ((lineRead = reader.readLine()) != null) {}
+
+    cnt = reader.getLineNumber();
+    reader.close();
+    return cnt;
   }
 
 }
