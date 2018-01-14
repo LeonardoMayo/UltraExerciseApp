@@ -11,6 +11,7 @@ public class Exercise {
   private String name;
   private String description;
   private ArrayList<Set> sets = new ArrayList<>();
+  private Plan usedInPlan;
 
   public Exercise (String name){
     this.name = name;

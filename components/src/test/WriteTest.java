@@ -16,11 +16,12 @@ public class WriteTest {
     private Exercise exer3;
     private Exercise exer4;
     private Exercise exer5;
-
+    LaunchTest launchTest = new LaunchTest();
     public WriteTest() {
     }
 
     public void init() {
+
         user = new Profile("MasterBeater69", 90, 180);
         plan1 = new Plan("Brust");
         plan2 = new Plan("Bauch");
@@ -41,9 +42,15 @@ public class WriteTest {
         plan2.addExerciseToPlan(exer4);
         plan2.addExerciseToPlan(exer5);
 
-        WritePlansToFile planWriter = new WritePlansToFile();
-        WriteProfileToFile profileWriter = new WriteProfileToFile();
-        WriteExercisesToFile exerciseWriter = new WriteExercisesToFile();
+        addSetsForTests(exer1);
+        addSetsForTests(exer2);
+        addSetsForTests(exer3);
+        addSetsForTests(exer4);
+        addSetsForTests(exer5);
+
+        PlansToFile planWriter = new PlansToFile();
+        ProfileToFile profileWriter = new ProfileToFile();
+        ExercisesToFile exerciseWriter = new ExercisesToFile();
         try {
             profileWriter.writeProfile(user);
             planWriter.writePlan(plan1);
@@ -55,6 +62,20 @@ public class WriteTest {
             exerciseWriter.writeExcersize(exer5);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void fillTestSets(Set set) {
+        set.addRepetitionToSet((int) (Math.random()*10));
+        set.addRepetitionToSet((int) (Math.random()*10));
+        set.addRepetitionToSet((int) (Math.random()*10));
+    }
+
+    private void addSetsForTests(Exercise exercise){
+        for (int i = 0; i < 3; i++) {
+            Set set = new Set(launchTest.getActualDate(), exercise, plan1);
+            exercise.addSetToExercise(set);
+            fillTestSets(set);
         }
     }
 }

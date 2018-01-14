@@ -5,9 +5,9 @@ import PlanFramework.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class WritePlansToFile {
+public class PlansToFile {
 
-  public WritePlansToFile(){}
+  public PlansToFile(){}
 
   public void writePlan(Plan plan) throws IOException {
     String dir = System.getProperty("user.dir")+"\\saveddata\\plans";
@@ -43,8 +43,44 @@ public class WritePlansToFile {
     writer.close();
   }
 
-  public Plan readPlan(String planName){
+  public Plan readPlan(String planName) throws IOException {
+
+    String dir = System.getProperty("user.dir")+"\\saveddata\\plans";
+    String fileName = planName+".exer";
+    File file = new File(dir, fileName);
+    BufferedReader reader = new BufferedReader(new FileReader(file));
+    int count = lineCount(file);
+
+    String description = null;
+    ArrayList<Exercise> exercises = new ArrayList<>();
+    ArrayList<String> trainingDates = new ArrayList<>();
+    boolean exerciseList = false;
+    boolean trainingDatesList = false;
+
+    for (int i = 0; i < count; i++) {
+      String line = reader.readLine();
+
+      if (trainingDatesList && !(line.contains("::"))){
+        trainingDates.add(line);
+      }
+      if (exerciseList && !(line.contains("::"))){
+        Exercise exercise = new Exercise(line);
+        exercises.add(exercise);
+      }
+
+      if (line.contains("Description: ")){
+        description = line.substring(13);
+      } else if (line.contains("Training Dates: ")){
+        trainingDatesList = true; exerciseList = false;
+      } else if (line.contains("Exercises: ")){
+        trainingDatesList = false; exerciseList = true;
+      }
+    }
+
     Plan plan = new Plan(planName);
+    plan.setDescription(description);
+    plan.setExerciseList(exercises);
+    plan.setTrainingDates(trainingDates);
     return plan;
   }
 

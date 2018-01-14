@@ -6,9 +6,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class WriteProfileToFile {
+public class ProfileToFile {
 
-  public WriteProfileToFile(){}
+  public ProfileToFile(){}
 
   public void writeProfile(Profile profile) throws IOException {
     String dir = System.getProperty("user.dir")+"\\saveddata\\profiles";
