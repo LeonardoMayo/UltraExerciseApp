@@ -72,10 +72,8 @@ public class WriteTest {
     }
 
     private void addSetsForTests(Exercise exercise){
-        for (int i = 0; i < 3; i++) {
             Set set = new Set(launchTest.getActualDate(), exercise, plan1);
             exercise.addSetToExercise(set);
             fillTestSets(set);
-        }
     }
 }

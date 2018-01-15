@@ -65,7 +65,7 @@ public class LaunchTest {
   }
 
   public String getActualDate() {
-    return "2018-01-11";
+    return "2018-01-12";
   }
 
   public void newTraining(Plan plan) {
@@ -82,7 +82,7 @@ public class LaunchTest {
     printTestData(plan);
   }
 
-  private void fillTestSets(Set set) {
+  public void fillTestSets(Set set) {
     set.addRepetitionToSet((int) (Math.random()*10));
     set.addRepetitionToSet((int) (Math.random()*10));
     set.addRepetitionToSet((int) (Math.random()*10));

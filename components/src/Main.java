@@ -1,4 +1,5 @@
 import test.LaunchTest;
+import test.LoadAndWriteTest;
 import test.ReadTest;
 import test.WriteTest;
 
@@ -20,6 +21,13 @@ public class Main {
 
 //    LaunchTest launchTest = new LaunchTest();
 //    launchTest.init();
+
+    LoadAndWriteTest test = new LoadAndWriteTest();
+    try {
+      test.run();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
   }
 }
