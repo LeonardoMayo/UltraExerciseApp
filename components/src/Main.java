@@ -22,12 +22,12 @@ public class Main {
 //    LaunchTest launchTest = new LaunchTest();
 //    launchTest.init();
 
-    LoadAndWriteTest test = new LoadAndWriteTest();
-    try {
-      test.run();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+//    LoadAndWriteTest test = new LoadAndWriteTest();
+//    try {
+//      test.run();
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
 
   }
 }
