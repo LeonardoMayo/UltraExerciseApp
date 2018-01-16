@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackPane" maxHeight="720.0" maxWidth="540.0"
+           minHeight="720.0" minWidth="540.0"
+           prefHeight="720.0" prefWidth="540.0"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="Desktop.controller.RootController">
+    <children>
+        <AnchorPane fx:id="anchorPane">
+            <children>
+
+
+
+                <FlowPane hgap="10.0" maxHeight="40.0" maxWidth="240.0" minHeight="40.0" minWidth="240.0"
+                          prefHeight="40.0" prefWidth="240.0" BorderPane.alignment="CENTER">
+                    <children></children>
+                </FlowPane>
+
+                <AnchorPane fx:id="modulePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                            AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0"/>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

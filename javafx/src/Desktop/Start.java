@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import Desktop.controller.*;
+import Desktop.controller.RootController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
@@ -11,9 +14,9 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
 
-  //private RootController controller;
+  private RootController controller;
 
-  private final int width = 1280;
+  private final int width = 540;
 
   private final int height = 720;
 
@@ -21,33 +24,34 @@ public class Start extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Root.fxml"));
+
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("Desktop/fxml/Root.fxml"));
 
     final Parent root = loader.load();
-    //controller = loader.getController();
+    controller = loader.getController();
 
-    primaryStage.setTitle("Gaming UI");
+    primaryStage.setTitle("Ultra Exercise Test");
     Scene scene = new Scene(root, width, height);
     primaryStage.setMinWidth(width);
     primaryStage.setMinHeight(height);
     primaryStage.setScene(scene);
     primaryStage.show();
 
-    addModule("Template");
-    addModule("Example");
-    addModule("LevelEditor");
-    addModule("QuestManager");
+    addModule("Frame");
+    addModule("Login");
+    addModule("Registration");
+
   }
 
   private void addModule(String name) {
     try {
       URL url = getClass().getResource("/fxml/" + name + ".fxml");
       if (url == null) {
-        //logger.error("addModule: Fxml File for Module: \"" + name + "\" not found!");
+        System.out.println("ERROR - addModule: Fxml File for Module: \"" + name + "\" not found!");
       } else {
-        //logger.info("addModule: Loading Module: \"" + name + "\"!");
+        System.out.println("ERROR - addModule: Loading Module: \"" + name + "\"!");
         Node content = FXMLLoader.load(url);
-        //controller.addModule(name, content);
+        controller.addModule(name, content);
       }
     } catch (IOException e) {
       e.printStackTrace();
