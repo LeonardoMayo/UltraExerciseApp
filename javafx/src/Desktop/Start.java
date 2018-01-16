@@ -1,0 +1,69 @@
+package Desktop;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.*;
+import javafx.stage.Stage;
+
+public class Start extends Application {
+
+  //private RootController controller;
+
+  private final int width = 1280;
+
+  private final int height = 720;
+
+  private Map<String, Module> modules = new HashMap<>();
+
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Root.fxml"));
+
+    final Parent root = loader.load();
+    //controller = loader.getController();
+
+    primaryStage.setTitle("Gaming UI");
+    Scene scene = new Scene(root, width, height);
+    primaryStage.setMinWidth(width);
+    primaryStage.setMinHeight(height);
+    primaryStage.setScene(scene);
+    primaryStage.show();
+
+    addModule("Template");
+    addModule("Example");
+    addModule("LevelEditor");
+    addModule("QuestManager");
+  }
+
+  private void addModule(String name) {
+    try {
+      URL url = getClass().getResource("/fxml/" + name + ".fxml");
+      if (url == null) {
+        //logger.error("addModule: Fxml File for Module: \"" + name + "\" not found!");
+      } else {
+        //logger.info("addModule: Loading Module: \"" + name + "\"!");
+        Node content = FXMLLoader.load(url);
+        //controller.addModule(name, content);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * the main method.
+   *
+   * @param args command line arguments
+   */
+  public static void main(String[] args) {
+
+    System.out.println("java version: " + System.getProperty("java.version"));
+    launch(args);
+  }
+}
+
+

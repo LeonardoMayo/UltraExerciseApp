@@ -1,4 +1,4 @@
-package Desktop;
+package Desktop.controller;
 
 public class PlanController {
 
