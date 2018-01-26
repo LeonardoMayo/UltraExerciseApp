@@ -17,20 +17,24 @@ import java.util.ResourceBundle;
 
 public class RootController extends Controller implements Initializable {
 
-    @FXML
-    private AnchorPane modulePane;
+  @FXML
+  private AnchorPane modulePane;
 
 
-    private Map<String, Node> moduleMap;
-    private Node firstModule = null;
+  private Map<String, Node> moduleMap;
+  private Node firstModule = null;
 
-    public RootController() {
-        System.out.println("RootController created");
-        moduleMap = new HashMap<>();
-    }
+  private LoginController loginController;
+  private RegistrationController registrationController;
+  private FrameController frameController;
 
-    @Override
-    public void initialize(final URL location, final ResourceBundle resources) {
+  public RootController() {
+    System.out.println("RootController created");
+    moduleMap = new HashMap<>();
+  }
+
+  @Override
+  public void initialize(final URL location, final ResourceBundle resources) {
 
 //        modulePane.getChildren().clear();
 //
@@ -39,21 +43,32 @@ public class RootController extends Controller implements Initializable {
 //        }
 //        modulePane.getChildren().add(firstModule);
 
+  }
+
+  public void addModule(String name, Node content) {
+
+    moduleMap.put(name, content);
+
+    if (firstModule == null) {
+      firstModule = content;
     }
+  }
 
-    public void addModule(String name, Node content) {
+  public void startUp() {
+    modulePane.getChildren().clear();
+    modulePane.getChildren().add(moduleMap.get("Login"));
+    //wie krieg ich hier den Controller von Login?
 
-        moduleMap.put(name, content);
-
-        if (firstModule == null) {
-            firstModule = content;
-        }
-    }
-
-    public void startUp () {
-        modulePane.getChildren().clear();
-        modulePane.getChildren().add(moduleMap.get("Login"));
-    }
+  }
 
 
+  public void changeToRegistrationModule() {
+    modulePane.getChildren().clear();
+    modulePane.getChildren().add(moduleMap.get("Registration"));
+  }
+
+  public void changeToFrameModule() {
+    modulePane.getChildren().clear();
+    modulePane.getChildren().add(moduleMap.get("Frame"));
+  }
 }

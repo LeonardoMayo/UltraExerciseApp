@@ -8,20 +8,28 @@ import java.util.ResourceBundle;
 /**
  * Created by Jan on 15.01.2018.
  */
-public class LoginController extends Controller implements Initializable{
+public class LoginController extends Controller implements Initializable {
 
-    private RootController parent;
+  private RootController parent;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
 
-    }
+  }
 
-    public void login(String profileName){
+  public void login(String profileName) {
+    parent.changeToFrameModule();
+  }
 
-    }
+  public void changeToRegistration() {
+    parent.changeToRegistrationModule();
+  }
 
-    public void changeToRegistration(){
+  public void setParent(RootController parent) {
+    this.parent = parent;
+  }
 
-    }
+  public RootController getParent() {
+    return parent;
+  }
 }
