@@ -26,7 +26,7 @@ public class Start extends Application {
   public void start(Stage primaryStage) throws Exception {
 
     FXMLLoader loader = new FXMLLoader(getClass().getResource("../Desktop/fxml/Root.fxml"));
-    System.out.println(getClass().getResource("../Desktop/fxml/Root.fxml"));
+    //System.out.println(getClass().getResource("../Desktop/fxml/Root.fxml"));
     //loader.setLocation(getClass().getResource("Desktop/fxml/Root.fxml"));
 
     final Parent root = loader.load();
@@ -43,15 +43,17 @@ public class Start extends Application {
     addModule("Login");
     addModule("Registration");
 
+    controller.startUp();
+
   }
 
   private void addModule(String name) {
     try {
-      URL url = getClass().getResource("/fxml/" + name + ".fxml");
+      URL url = getClass().getResource("../Desktop/fxml/" + name + ".fxml");
       if (url == null) {
-        System.out.println("ERROR - addModule: Fxml File for Module: \"" + name + "\" not found!");
+        System.out.println("ERROR 404 - addModule: Fxml File for Module: \"" + name + "\" not found!");
       } else {
-        System.out.println("ERROR - addModule: Loading Module: \"" + name + "\"!");
+        System.out.println("INFO - addModule: Loading Module: \"" + name + "\"!");
         Node content = FXMLLoader.load(url);
         controller.addModule(name, content);
       }

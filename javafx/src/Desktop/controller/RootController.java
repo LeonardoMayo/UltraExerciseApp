@@ -32,10 +32,13 @@ public class RootController extends Controller implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
 
-        modulePane.getChildren().clear();
+//        modulePane.getChildren().clear();
+//
+//        if (!moduleMap.isEmpty()){
+//            modulePane.getChildren().add(moduleMap.get("Login"));
+//        }
+//        modulePane.getChildren().add(firstModule);
 
-        modulePane.getChildren().add(firstModule);
-        //modulePane.getChildren().add(moduleMap.get("Login"));
     }
 
     public void addModule(String name, Node content) {
@@ -47,7 +50,10 @@ public class RootController extends Controller implements Initializable {
         }
     }
 
-
+    public void startUp () {
+        modulePane.getChildren().clear();
+        modulePane.getChildren().add(moduleMap.get("Login"));
+    }
 
 
 }
