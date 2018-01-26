@@ -25,7 +25,9 @@ public class Start extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("Desktop/fxml/Root.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("../Desktop/fxml/Root.fxml"));
+    System.out.println(getClass().getResource("../Desktop/fxml/Root.fxml"));
+    //loader.setLocation(getClass().getResource("Desktop/fxml/Root.fxml"));
 
     final Parent root = loader.load();
     controller = loader.getController();

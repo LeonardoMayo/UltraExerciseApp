@@ -18,14 +18,14 @@
             <children>
 
 
-
                 <FlowPane hgap="10.0" maxHeight="40.0" maxWidth="240.0" minHeight="40.0" minWidth="240.0"
                           prefHeight="40.0" prefWidth="240.0" BorderPane.alignment="CENTER">
                     <children></children>
                 </FlowPane>
 
                 <AnchorPane fx:id="modulePane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
-                            AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0"/>
+                            AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                </AnchorPane>
             </children>
         </AnchorPane>
     </children>

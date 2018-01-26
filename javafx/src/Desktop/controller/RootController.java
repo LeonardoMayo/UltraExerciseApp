@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.*;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -23,12 +24,18 @@ public class RootController extends Controller implements Initializable {
     private Map<String, Node> moduleMap;
     private Node firstModule = null;
 
+    public RootController() {
+        System.out.println("RootController created");
+        moduleMap = new HashMap<>();
+    }
+
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
 
         modulePane.getChildren().clear();
 
-        modulePane.getChildren().add(moduleMap.get("Login"));
+        modulePane.getChildren().add(firstModule);
+        //modulePane.getChildren().add(moduleMap.get("Login"));
     }
 
     public void addModule(String name, Node content) {
