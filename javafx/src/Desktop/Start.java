@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 public class Start extends Application {
 
   private RootController controller;
+  private FrameController frameController;
+  private Stage stage;
 
   private final int width = 540;
 
@@ -22,24 +24,31 @@ public class Start extends Application {
 
   private Map<String, Module> modules = new HashMap<>();
 
+  private FXMLLoader loader;
+  private String selectedProfile;
+
+  public Start(){}
+
   @Override
   public void start(Stage primaryStage) throws Exception {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("../Desktop/fxml/Root.fxml"));
+    loader = new FXMLLoader(getClass().getResource("../Desktop/fxml/Root.fxml"));
     //System.out.println(getClass().getResource("../Desktop/fxml/Root.fxml"));
     //loader.setLocation(getClass().getResource("Desktop/fxml/Root.fxml"));
 
     final Parent root = loader.load();
     controller = loader.getController();
+    controller.startInstance = this;
 
     primaryStage.setTitle("Ultra Exercise Test");
     Scene scene = new Scene(root, width, height);
     primaryStage.setMinWidth(width);
     primaryStage.setMinHeight(height);
     primaryStage.setScene(scene);
+    stage = primaryStage;
     primaryStage.show();
 
-    addModule("Frame");
+//    addModule("Frame");
 //    addModule("Login");
 //    addModule("Registration");
 
@@ -55,11 +64,27 @@ public class Start extends Application {
       } else {
         System.out.println("INFO - addModule: Loading Module: \"" + name + "\"!");
         Node content = FXMLLoader.load(url);
-        controller.addModule(name, content);
+        frameController.addModule(name, content);
       }
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public void loadFrame() throws Exception {
+    loader = new FXMLLoader(getClass().getResource("../Desktop/fxml/Frame.fxml"));
+    final Parent root = loader.load();
+    frameController = loader.getController();
+    frameController.setSelectedProfileName(selectedProfile);
+    Scene scene = new Scene(root, width, height);
+    stage.setScene(scene);
+    stage.show();
+
+    addModule("Profile");
+    addModule("Plan");
+
+    frameController.startUp();
+
   }
 
   /**
@@ -71,6 +96,10 @@ public class Start extends Application {
 
     System.out.println("java version: " + System.getProperty("java.version"));
     launch(args);
+  }
+
+  public void setSelectedProfile(String name){
+    selectedProfile = name;
   }
 }
 

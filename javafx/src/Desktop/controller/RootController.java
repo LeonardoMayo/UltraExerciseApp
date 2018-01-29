@@ -1,6 +1,8 @@
 package Desktop.controller;
 
 import java.util.ArrayList;
+
+import Desktop.Start;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,6 +41,7 @@ public class RootController extends Controller implements Initializable {
 
   private Map<String, Node> moduleMap;
   private Node firstModule = null;
+  public Start startInstance;
 
   private String dir = System.getProperty("user.dir") + "\\saveddata\\";
 
@@ -65,18 +68,26 @@ public class RootController extends Controller implements Initializable {
   }
 
 
-  public void changeToRegistrationModule() {
+  public void changeToLogin(){
+    registrationPane.setVisible(false);
+    loginPane.setVisible(true);
+  }
+
+  public void changeToRegistration() {
 
     loginPane.setVisible(false);
     registrationPane.setVisible(true);
 
   }
 
-  public void changeToFrameModule() {
+  public void changeToFrameModule() throws Exception {
     //modulePane.getChildren().clear();
-    loginPane.setVisible(false);
-    registrationPane.setVisible(false);
-    modulePane.getChildren().add(moduleMap.get("Frame"));
+//    loginPane.setVisible(false);
+//    registrationPane.setVisible(false);
+//    modulePane.getChildren().add(moduleMap.get("Frame"));
+    startInstance.setSelectedProfile("null");
+    modulePane.setVisible(false);
+    startInstance.loadFrame();
   }
 
   public ArrayList<Profile> loadProfiles(String path) {
