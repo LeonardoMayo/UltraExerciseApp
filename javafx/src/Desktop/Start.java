@@ -39,7 +39,7 @@ public class Start extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
 
-//    addModule("Frame");
+    addModule("Frame");
 //    addModule("Login");
 //    addModule("Registration");
 

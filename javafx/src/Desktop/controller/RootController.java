@@ -40,10 +40,7 @@ public class RootController extends Controller implements Initializable {
   private Map<String, Node> moduleMap;
   private Node firstModule = null;
 
-  private LoginController loginController;
-  private RegistrationController registrationController;
-  private FrameController frameController;
-  private String dir = System.getProperty("user.dir")+"\\saveddata\\";
+  private String dir = System.getProperty("user.dir") + "\\saveddata\\";
 
   public RootController() {
     System.out.println("RootController created");
@@ -54,7 +51,7 @@ public class RootController extends Controller implements Initializable {
   public void initialize(final URL location, final ResourceBundle resources) {
 
     loginPane.setVisible(true);
-    ArrayList<Profile> profiles = loadProfiles(dir+"profiles");
+    ArrayList<Profile> profiles = loadProfiles(dir + "profiles");
     profileList.setItems((ObservableList) profiles);
 
   }
@@ -62,12 +59,11 @@ public class RootController extends Controller implements Initializable {
   public void addModule(String name, Node content) {
 
     moduleMap.put(name, content);
-
     if (firstModule == null) {
       firstModule = content;
     }
   }
-  
+
 
   public void changeToRegistrationModule() {
 
@@ -77,11 +73,13 @@ public class RootController extends Controller implements Initializable {
   }
 
   public void changeToFrameModule() {
-    modulePane.getChildren().clear();
+    //modulePane.getChildren().clear();
+    loginPane.setVisible(false);
+    registrationPane.setVisible(false);
     modulePane.getChildren().add(moduleMap.get("Frame"));
   }
 
-  public ArrayList<Profile> loadProfiles(String path){
+  public ArrayList<Profile> loadProfiles(String path) {
     return null;
   }
 }
