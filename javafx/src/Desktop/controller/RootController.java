@@ -1,14 +1,20 @@
 package Desktop.controller;
 
+import java.util.ArrayList;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import UserManagement.Profile;
 
 /**
  * Created by Jan on 16.01.2018.
@@ -18,7 +24,17 @@ import java.util.ResourceBundle;
 public class RootController extends Controller implements Initializable {
 
   @FXML
-  private AnchorPane modulePane;
+  public AnchorPane loginPane;
+  public AnchorPane registrationPane;
+  public AnchorPane modulePane;
+  public Button loginButton;
+  public Button goToRegister;
+  public ListView profileList;
+
+  public TextField registrationNameField;
+  public TextField registrationHeightField;
+  public TextField registrationWeightField;
+  public Button registrationButton;
 
 
   private Map<String, Node> moduleMap;
@@ -27,6 +43,7 @@ public class RootController extends Controller implements Initializable {
   private LoginController loginController;
   private RegistrationController registrationController;
   private FrameController frameController;
+  private String dir = System.getProperty("user.dir")+"\\saveddata\\";
 
   public RootController() {
     System.out.println("RootController created");
@@ -36,12 +53,9 @@ public class RootController extends Controller implements Initializable {
   @Override
   public void initialize(final URL location, final ResourceBundle resources) {
 
-//        modulePane.getChildren().clear();
-//
-//        if (!moduleMap.isEmpty()){
-//            modulePane.getChildren().add(moduleMap.get("Login"));
-//        }
-//        modulePane.getChildren().add(firstModule);
+    loginPane.setVisible(true);
+    ArrayList<Profile> profiles = loadProfiles(dir+"profiles");
+    profileList.setItems((ObservableList) profiles);
 
   }
 
@@ -53,22 +67,21 @@ public class RootController extends Controller implements Initializable {
       firstModule = content;
     }
   }
-
-  public void startUp() {
-    modulePane.getChildren().clear();
-    modulePane.getChildren().add(moduleMap.get("Login"));
-    //wie krieg ich hier den Controller von Login?
-
-  }
-
+  
 
   public void changeToRegistrationModule() {
-    modulePane.getChildren().clear();
-    modulePane.getChildren().add(moduleMap.get("Registration"));
+
+    loginPane.setVisible(false);
+    registrationPane.setVisible(true);
+
   }
 
   public void changeToFrameModule() {
     modulePane.getChildren().clear();
     modulePane.getChildren().add(moduleMap.get("Frame"));
+  }
+
+  public ArrayList<Profile> loadProfiles(String path){
+    return null;
   }
 }

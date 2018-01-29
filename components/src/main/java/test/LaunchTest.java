@@ -1,9 +1,7 @@
 package test;
 
 import PlanFramework.*;
-import Filewriting.*;
 import UserManagement.Profile;
-import java.io.IOException;
 
 /**
  * @author Jan Leppich

@@ -4,7 +4,6 @@ import UserManagement.*;
 import PlanFramework.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ProfileToFile {
 

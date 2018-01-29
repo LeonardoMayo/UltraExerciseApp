@@ -39,11 +39,11 @@ public class Start extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
 
-    addModule("Frame");
-    addModule("Login");
-    addModule("Registration");
+//    addModule("Frame");
+//    addModule("Login");
+//    addModule("Registration");
 
-    controller.startUp();
+    //controller.startUp();
 
   }
 
