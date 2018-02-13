@@ -7,6 +7,7 @@ import java.util.Map;
 
 import Desktop.controller.*;
 import Desktop.controller.RootController;
+import UserManagement.Profile;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
@@ -71,17 +72,17 @@ public class Start extends Application {
     }
   }
 
-  public void loadFrame() throws Exception {
+  public void loadFrame(Profile profile) throws Exception {
     loader = new FXMLLoader(getClass().getResource("../Desktop/fxml/Frame.fxml"));
     final Parent root = loader.load();
     frameController = loader.getController();
-    frameController.setSelectedProfileName(selectedProfile);
+    frameController.setProfile(profile);
     Scene scene = new Scene(root, width, height);
     stage.setScene(scene);
     stage.show();
 
-    addModule("Profile");
-    addModule("Plan");
+//    addModule("Profile");
+//    addModule("Plan");
 
     frameController.startUp();
 

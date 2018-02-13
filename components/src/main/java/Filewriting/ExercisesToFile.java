@@ -1,15 +1,20 @@
 package Filewriting;
 
 import PlanFramework.*;
+import UserManagement.Profile;
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class ExercisesToFile {
 
+  public Profile currentUser;
+  public Plan currentPlan;
+
   public ExercisesToFile(){}
 
   public void writeExcersize(Exercise exercise) throws IOException {
-    String dir = System.getProperty("user.dir")+"\\saveddata\\exercises";
+    String dir = System.getProperty("user.dir")+"\\saveddata\\"+currentUser.getName()+"\\exercises";
     File file = new File(dir, exercise.getName());
     BufferedWriter writer = new BufferedWriter(new FileWriter(file+".exer"));
 
@@ -37,7 +42,7 @@ public class ExercisesToFile {
 
   public Exercise readExercise(String exerciseName)throws IOException{
 
-    String dir = System.getProperty("user.dir")+"\\saveddata\\exercises";
+    String dir = System.getProperty("user.dir")+"\\saveddata\\"+currentUser.getName()+"\\exercises";
     String fileName = exerciseName+".exer";
     File file = new File(dir, fileName);
     BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -126,4 +131,19 @@ public class ExercisesToFile {
     return cnt;
   }
 
+  public Profile getCurrentUser() {
+    return currentUser;
+  }
+
+  public void setCurrentUser(Profile currentUser) {
+    this.currentUser = currentUser;
+  }
+
+  public Plan getCurrentPlan() {
+    return currentPlan;
+  }
+
+  public void setCurrentPlan(Plan currentPlan) {
+    this.currentPlan = currentPlan;
+  }
 }

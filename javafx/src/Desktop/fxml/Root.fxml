@@ -18,61 +18,61 @@
                         <Font name="Glockenspiel Regular" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="loginButton" layoutX="96.0" layoutY="556.0" mnemonicParsing="false" onAction="#changeToFrameModule" prefHeight="58.0" prefWidth="138.0" text="Log In" />
+                  <Button fx:id="loginButton" disable="true" layoutX="96.0" layoutY="556.0" mnemonicParsing="false" onAction="#changeToFrameModule" prefHeight="58.0" prefWidth="138.0" text="Log In" />
                   <Button fx:id="goToRegister" layoutX="260.0" layoutY="556.0" mnemonicParsing="false" onAction="#changeToRegistration" prefHeight="58.0" prefWidth="138.0" text="Sign Up" />
-                  <AnchorPane layoutX="96.0" layoutY="181.0" prefHeight="338.0" prefWidth="305.0">
+                  <AnchorPane layoutX="96.0" layoutY="181.0" prefHeight="338.0" prefWidth="305.0" style="-fx-background-color: ffffff;">
                      <children>
-                        <AnchorPane fx:id="profilePlace1" onMouseClicked="#setSelectedProfile" layoutX="14.0" layoutY="14.0" prefHeight="70.0" prefWidth="280.0">
+                        <AnchorPane fx:id="profilePlace1" layoutX="14.0" layoutY="14.0" onMouseClicked="#setSelectedProfile" onTouchPressed="#setSelectedProfile" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: f3f3f3;">
                            <children>
-                              <Label fx:id ="name1" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
+                              <Label fx:id="name1" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id ="weight1" layoutX="14.0" layoutY="44.0" text="weight">
+                              <Label fx:id="weight1" layoutX="14.0" layoutY="44.0" text="weight">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Label>
-                              <Label fx:id ="height1" layoutX="124.0" layoutY="44.0" text="height">
+                              <Label fx:id="height1" layoutX="124.0" layoutY="44.0" text="height">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="profilePlace2" onMouseClicked="#setSelectedProfile" layoutX="13.0" layoutY="98.0" prefHeight="70.0" prefWidth="280.0">
+                        <AnchorPane fx:id="profilePlace2" layoutX="13.0" layoutY="98.0" onMouseClicked="#setSelectedProfile" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: f3f3f3;">
                            <children>
-                              <Label fx:id ="name2" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
+                              <Label fx:id="name2" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id ="weight2" layoutX="14.0" layoutY="44.0" text="weight">
+                              <Label fx:id="weight2" layoutX="14.0" layoutY="44.0" text="weight">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Label>
-                              <Label fx:id ="height2" layoutX="124.0" layoutY="44.0" text="height">
+                              <Label fx:id="height2" layoutX="124.0" layoutY="44.0" text="height">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="profilePlace3" onMouseClicked="#setSelectedProfile" layoutX="13.0" layoutY="189.0" prefHeight="70.0" prefWidth="280.0">
+                        <AnchorPane fx:id="profilePlace3" layoutX="13.0" layoutY="189.0" onMouseClicked="#setSelectedProfile" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: f3f3f3;">
                            <children>
-                              <Label fx:id ="name3" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
+                              <Label fx:id="name3" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id ="weight3" layoutX="14.0" layoutY="44.0" text="weight">
+                              <Label fx:id="weight3" layoutX="14.0" layoutY="44.0" text="weight">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
                               </Label>
-                              <Label fx:id ="height3" layoutX="124.0" layoutY="44.0" text="height">
+                              <Label fx:id="height3" layoutX="124.0" layoutY="44.0" text="height">
                                  <font>
                                     <Font size="10.0" />
                                  </font>
