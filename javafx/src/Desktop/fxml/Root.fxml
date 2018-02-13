@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -21,7 +20,67 @@
                   </Label>
                   <Button fx:id="loginButton" layoutX="96.0" layoutY="556.0" mnemonicParsing="false" onAction="#changeToFrameModule" prefHeight="58.0" prefWidth="138.0" text="Log In" />
                   <Button fx:id="goToRegister" layoutX="260.0" layoutY="556.0" mnemonicParsing="false" onAction="#changeToRegistration" prefHeight="58.0" prefWidth="138.0" text="Sign Up" />
-                  <ListView fx:id="profileList" layoutX="96.0" layoutY="181.0" prefHeight="342.0" prefWidth="304.0" />
+                  <AnchorPane layoutX="96.0" layoutY="181.0" prefHeight="338.0" prefWidth="305.0">
+                     <children>
+                        <AnchorPane fx:id="profilePlace1" onMouseClicked="#setSelectedProfile" layoutX="14.0" layoutY="14.0" prefHeight="70.0" prefWidth="280.0">
+                           <children>
+                              <Label fx:id ="name1" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id ="weight1" layoutX="14.0" layoutY="44.0" text="weight">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id ="height1" layoutX="124.0" layoutY="44.0" text="height">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="profilePlace2" onMouseClicked="#setSelectedProfile" layoutX="13.0" layoutY="98.0" prefHeight="70.0" prefWidth="280.0">
+                           <children>
+                              <Label fx:id ="name2" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id ="weight2" layoutX="14.0" layoutY="44.0" text="weight">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id ="height2" layoutX="124.0" layoutY="44.0" text="height">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="profilePlace3" onMouseClicked="#setSelectedProfile" layoutX="13.0" layoutY="189.0" prefHeight="70.0" prefWidth="280.0">
+                           <children>
+                              <Label fx:id ="name3" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="194.0" text="profileName">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id ="weight3" layoutX="14.0" layoutY="44.0" text="weight">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id ="height3" layoutX="124.0" layoutY="44.0" text="height">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
             <AnchorPane fx:id="registrationPane" prefHeight="720.0" prefWidth="540.0" visible="false">
                <children>
@@ -37,7 +96,7 @@
                   <TextField fx:id="registrationWeightField" layoutX="65.0" layoutY="437.0" />
                   <Label layoutX="65.0" layoutY="404.0" text="Geben sie ihr Köpergewicht an" />
                   <Button fx:id="registrationButton" layoutX="65.0" layoutY="539.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="193.0" text="Register" />
-                  <Button fx:id="registrationBackButton" onAction="#changeToLogin" layoutX="280.0" layoutY="539.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="180.0" text="Back" />
+                  <Button fx:id="registrationBackButton" layoutX="280.0" layoutY="539.0" mnemonicParsing="false" onAction="#changeToLogin" prefHeight="70.0" prefWidth="180.0" text="Back" />
                </children>
             </AnchorPane>
             </children>

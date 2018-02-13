@@ -38,7 +38,12 @@ public class ProfileToFile {
 
   public Profile readProfile(String profileName) throws IOException {
     String dir = System.getProperty("user.dir")+"\\saveddata\\profiles";
-    String fileName = profileName+".exer";
+    String fileName;
+    if (profileName.contains(".exer")){
+      fileName = profileName;
+    } else {
+      fileName = profileName+".exer";
+    }
     File file = new File(dir, fileName);
     BufferedReader reader = new BufferedReader(new FileReader(file));
 
@@ -81,6 +86,16 @@ public class ProfileToFile {
     cnt = reader.getLineNumber();
     reader.close();
     return cnt;
+  }
+
+  public ArrayList<String> getFileNamesAndCount(String path){
+    ArrayList<String> result = new ArrayList<>();
+    String dir = System.getProperty("user.dir")+"\\saveddata\\"+path;
+    String[] array = new File(dir).list();
+    for (int i = 0; i < array.length; i++) {
+      result.add(array[i]);
+    }
+    return result;
   }
   }
 
