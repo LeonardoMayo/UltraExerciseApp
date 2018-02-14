@@ -18,6 +18,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javafx.scene.layout.Pane;
 
 /**
  * Created by Jan on 15.01.2018.
@@ -29,7 +30,9 @@ public class FrameController extends Controller implements Initializable {
     public AnchorPane planPane;
     public Label date, name;
     public Button options;
-    public ListView<String> planList;
+    public AnchorPane planListPane;
+    public ArrayList<AnchorPane> planTileList;
+
 
     private Map<String, Node> moduleMap;
     private Node firstModule = null;
@@ -74,12 +77,33 @@ public class FrameController extends Controller implements Initializable {
     }
 
     public void fillPlanlist() throws IOException {
+        planTileList = loadPlanTiles();
         plans = loadPlansfromProfile();
-        ObservableList<String> items = FXCollections.observableArrayList();
+
         for (int i = 0; i < plans.size(); i++) {
-            items.add(plans.get(i).getName());
+            List<Node> kids = planTileList.get(i).getChildren();
+            for (int j = 0; j < kids.size(); j++) {
+                Label label = (Label) kids.get(j);
+                if (label.getId().contains("planNameLabel")){
+                    label.setText(plans.get(i).getName());
+                } else if (label.getId().contains("lastUsedLabel")){
+                    ArrayList<String> dates = plans.get(i).getTrainingDates();
+                    //Muss Dates des Training in Plan reinschreiben, einfach wegen Zuordnung
+                    String lastDate = dates.get(dates.size()-1);
+                    label.setText(lastDate);
+                }
+            }
         }
-        planList.setItems(items);
+
+    }
+
+    private ArrayList<AnchorPane> loadPlanTiles() {
+        ArrayList<AnchorPane> result = new ArrayList<>();
+        List<Node> kids = planListPane.getChildren();
+        for (int i = 0; i < kids.size(); i++) {
+            result.add((AnchorPane) kids.get(i));
+        }
+        return result;
     }
 
     public ArrayList<Plan> loadPlansfromProfile() {
@@ -87,6 +111,7 @@ public class FrameController extends Controller implements Initializable {
         PlansToFile plansToFile = new PlansToFile();
         plansToFile.setCurrentUser(profile);
         ArrayList<Plan> loadedFromUser = profile.getPlanList();
+
         for (int i = 0; i < loadedFromUser.size(); i++) {
             Plan plan = null;
             boolean doesExist = true;

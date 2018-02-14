@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,15 +19,81 @@
             <AnchorPane fx:id="planPane" prefHeight="660.0" prefWidth="540.0" />
             <AnchorPane fx:id="profilePane" prefHeight="660.0" prefWidth="540.0">
                <children>
-                  <Label layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="194.0" text="Gespeicherte Pläne">
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="194.0" text="Zuletzt geöffnete Pläne">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ListView fx:id="planList" fixedCellSize="-3.0" layoutX="111.0" layoutY="74.0" prefHeight="488.0" prefWidth="303.0" style="-fx-background-color: ffffff;" />
-                  <Button fx:id="openPlanButton" layoutX="279.0" layoutY="560.0" mnemonicParsing="false" onAction="#openSelectedPlan" prefHeight="60.0" prefWidth="135.0" text="Plan öffnen">
+                  <AnchorPane layoutX="111.0" layoutY="74.0" prefHeight="470.0" prefWidth="303.0">
+                     <children>
+                        <ScrollPane prefHeight="470.0" prefWidth="303.0">
+                          <content>
+                            <AnchorPane fx:id="planListPane" minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="299.0" style="-fx-background-color: ffffff;">
+                                 <children>
+                                    <AnchorPane layoutX="9.0" layoutY="14.0" prefHeight="78.0" prefWidth="283.0">
+                                       <children>
+                                          <Label fx:id="planNameLabel1" layoutX="14.0" layoutY="14.0" text="planName">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lastUsedLabel1" layoutX="15.0" layoutY="41.0" text="last opened on" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="8.0" layoutY="92.0" prefHeight="78.0" prefWidth="283.0">
+                                       <children>
+                                          <Label fx:id="planNameLabel2" layoutX="14.0" layoutY="14.0" text="planName">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lastUsedLabel2" layoutX="15.0" layoutY="41.0" text="last opened on" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="8.0" layoutY="170.0" prefHeight="78.0" prefWidth="283.0">
+                                       <children>
+                                          <Label fx:id="planNameLabel3" layoutX="14.0" layoutY="14.0" text="planName">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lastUsedLabel3" layoutX="15.0" layoutY="41.0" text="last opened on" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="9.0" layoutY="242.0" prefHeight="78.0" prefWidth="283.0">
+                                       <children>
+                                          <Label fx:id="planNameLabel4" layoutX="14.0" layoutY="14.0" text="planName">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lastUsedLabel4" layoutX="15.0" layoutY="41.0" text="last opened on" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="9.0" layoutY="320.0" prefHeight="78.0" prefWidth="283.0">
+                                       <children>
+                                          <Label fx:id="planNameLabel5" layoutX="14.0" layoutY="14.0" text="planName">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lastUsedLabel5" layoutX="15.0" layoutY="41.0" text="last opened on" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="openPlanButton" disable="true" layoutX="279.0" layoutY="560.0" mnemonicParsing="false" onAction="#openSelectedPlan" prefHeight="60.0" prefWidth="135.0" text="Plan öffnen">
                      <font>
                         <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="111.0" layoutY="560.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Alle Pläne anzeigen">
+                     <font>
+                        <Font size="13.0" />
                      </font>
                   </Button>
                </children>
