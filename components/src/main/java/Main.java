@@ -12,12 +12,12 @@ public class Main {
 //    WriteTest writeTest = new WriteTest();
 //    writeTest.init();
 
-//    ReadTest readTest = new ReadTest();
-//    try {
-//      readTest.init();
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
+    ReadTest readTest = new ReadTest();
+    try {
+      readTest.init();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
 //    LaunchTest launchTest = new LaunchTest();
 //    launchTest.init();

@@ -16,8 +16,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="modulePane" layoutY="60.0" prefHeight="660.0" prefWidth="540.0">
          <children>
-            <AnchorPane fx:id="planPane" prefHeight="660.0" prefWidth="540.0" />
-            <AnchorPane fx:id="profilePane" prefHeight="660.0" prefWidth="540.0">
+            <AnchorPane fx:id="profilePane" prefHeight="660.0" prefWidth="540.0" visible="false">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="194.0" text="Zuletzt geöffnete Pläne">
                      <font>
@@ -30,7 +29,7 @@
                           <content>
                             <AnchorPane fx:id="planListPane" minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="299.0" style="-fx-background-color: ffffff;">
                                  <children>
-                                    <AnchorPane layoutX="9.0" layoutY="14.0" prefHeight="78.0" prefWidth="283.0">
+                                    <AnchorPane layoutX="9.0" layoutY="14.0" onMouseClicked="#setSelectedPlan" onTouchPressed="#setSelectedPlan" prefHeight="78.0" prefWidth="283.0" style="-fx-background-color: f3f3f3;">
                                        <children>
                                           <Label fx:id="planNameLabel1" layoutX="14.0" layoutY="14.0" text="planName">
                                              <font>
@@ -40,7 +39,7 @@
                                           <Label fx:id="lastUsedLabel1" layoutX="15.0" layoutY="41.0" text="last opened on" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="8.0" layoutY="92.0" prefHeight="78.0" prefWidth="283.0">
+                                    <AnchorPane layoutX="8.0" layoutY="100.0" onMouseClicked="#setSelectedPlan" onTouchPressed="#setSelectedPlan" prefHeight="78.0" prefWidth="283.0" style="-fx-background-color: f3f3f3;">
                                        <children>
                                           <Label fx:id="planNameLabel2" layoutX="14.0" layoutY="14.0" text="planName">
                                              <font>
@@ -50,7 +49,7 @@
                                           <Label fx:id="lastUsedLabel2" layoutX="15.0" layoutY="41.0" text="last opened on" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="8.0" layoutY="170.0" prefHeight="78.0" prefWidth="283.0">
+                                    <AnchorPane layoutX="8.0" layoutY="188.0" onMouseClicked="#setSelectedPlan" onTouchPressed="#setSelectedPlan" prefHeight="78.0" prefWidth="283.0" style="-fx-background-color: f3f3f3;">
                                        <children>
                                           <Label fx:id="planNameLabel3" layoutX="14.0" layoutY="14.0" text="planName">
                                              <font>
@@ -60,7 +59,7 @@
                                           <Label fx:id="lastUsedLabel3" layoutX="15.0" layoutY="41.0" text="last opened on" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="9.0" layoutY="242.0" prefHeight="78.0" prefWidth="283.0">
+                                    <AnchorPane layoutX="8.0" layoutY="273.0" onMouseClicked="#setSelectedPlan" onTouchPressed="#setSelectedPlan" prefHeight="78.0" prefWidth="283.0" style="-fx-background-color: f3f3f3;">
                                        <children>
                                           <Label fx:id="planNameLabel4" layoutX="14.0" layoutY="14.0" text="planName">
                                              <font>
@@ -70,7 +69,7 @@
                                           <Label fx:id="lastUsedLabel4" layoutX="15.0" layoutY="41.0" text="last opened on" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="9.0" layoutY="320.0" prefHeight="78.0" prefWidth="283.0">
+                                    <AnchorPane layoutX="8.0" layoutY="359.0" onMouseClicked="#setSelectedPlan" onTouchPressed="#setSelectedPlan" prefHeight="78.0" prefWidth="283.0" style="-fx-background-color: f3f3f3;">
                                        <children>
                                           <Label fx:id="planNameLabel5" layoutX="14.0" layoutY="14.0" text="planName">
                                              <font>
@@ -91,13 +90,27 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="111.0" layoutY="560.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Alle Pläne anzeigen">
+                  <Button fx:id="showAllPlansButton" layoutX="111.0" layoutY="560.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="135.0" text="Alle Pläne anzeigen">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="planPane" prefHeight="660.0" prefWidth="540.0">
+               <children>
+                  <Label fx:id="planNameLabel" layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="172.0" text="planName">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="14.0" layoutY="99.0" prefHeight="470.0" prefWidth="513.0">
+                    <content>
+                      <AnchorPane fx:id="planTable" minHeight="0.0" minWidth="0.0" prefHeight="463.0" prefWidth="511.0" />
+                    </content>
+                  </ScrollPane>
+                  <Button fx:id="backButton" layoutX="46.0" layoutY="592.0" mnemonicParsing="false" text="Back" />
+               </children></AnchorPane>
          </children>
       </AnchorPane>
    </children>

@@ -63,7 +63,7 @@ public class LaunchTest {
   }
 
   public String getActualDate() {
-    return "2018-01-12";
+    return "2018-01-14";
   }
 
   public void newTraining(Plan plan) {

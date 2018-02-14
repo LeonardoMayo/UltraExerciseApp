@@ -6,11 +6,13 @@ import UserManagement.Profile;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -18,6 +20,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
 import javafx.scene.layout.Pane;
 
 /**
@@ -32,12 +35,18 @@ public class FrameController extends Controller implements Initializable {
     public Button options;
     public AnchorPane planListPane;
     public ArrayList<AnchorPane> planTileList;
+    public Button showAllPlansButton;
+    public Button openPlanButton;
+    public Label planNameLabel;
+    public AnchorPane planTable;
+    public Button backButton;
 
 
     private Map<String, Node> moduleMap;
     private Node firstModule = null;
     private Profile profile;
     public ArrayList<Plan> plans = new ArrayList<>();
+    public Plan selectedPlan;
 
     public FrameController() {
         System.out.println("FrameController created");
@@ -84,15 +93,28 @@ public class FrameController extends Controller implements Initializable {
             List<Node> kids = planTileList.get(i).getChildren();
             for (int j = 0; j < kids.size(); j++) {
                 Label label = (Label) kids.get(j);
-                if (label.getId().contains("planNameLabel")){
+                if (label.getId().contains("planNameLabel")) {
                     label.setText(plans.get(i).getName());
-                } else if (label.getId().contains("lastUsedLabel")){
+                } else if (label.getId().contains("lastUsedLabel")) {
                     ArrayList<String> dates = plans.get(i).getTrainingDates();
-                    //Muss Dates des Training in Plan reinschreiben, einfach wegen Zuordnung
-                    String lastDate = dates.get(dates.size()-1);
-                    label.setText(lastDate);
+                    String preLastDate = dates.get(dates.size() - 1);
+                    String lastDate = preLastDate.substring(preLastDate.length() - 2) + "/" + preLastDate.substring(5, 7) + "/" + preLastDate.substring(0, 3);
+                    label.setText("Zuletzt gemacht am " + lastDate);
                 }
             }
+        }
+
+        if (plans.size() < planTileList.size()) {
+            int diff = planTileList.size() - plans.size();
+            for (int i = 0; i < diff; i++) {
+                AnchorPane pane = planTileList.get(planTileList.size() - i - 1);
+                pane.setVisible(false);
+            }
+
+        }
+        showAllPlansButton.setDisable(true);
+        if (plans.size() > planTileList.size()) {
+            showAllPlansButton.setDisable(false);
         }
 
     }
@@ -129,11 +151,6 @@ public class FrameController extends Controller implements Initializable {
         return result;
     }
 
-    public void loadProfileModule() {
-
-    }
-
-
     public Profile getProfile() {
         return profile;
     }
@@ -143,6 +160,31 @@ public class FrameController extends Controller implements Initializable {
     }
 
     public void openSelectedPlan(ActionEvent actionEvent) {
+        profilePane.setVisible(false);
+        planPane.setVisible(true);
+    }
+
+    public void setSelectedPlan(Event event) {
+
+        String name = "";
+        Pane source = (Pane) event.getSource();
+        List<Node> kids = source.getChildren();
+        for (int i = 0; i < kids.size(); i++) {
+            Label label = (Label) kids.get(i);
+            if (label.getId().contains("planName")) {
+                name = label.getText();
+            }
+        }
+        for (int i = 0; i < plans.size(); i++) {
+            if (plans.get(i).getName().equals(name)) {
+                selectedPlan = plans.get(i);
+            }
+        }
+        for (int i = 0; i < planTileList.size(); i++) {
+            planTileList.get(i).setStyle("-fx-background-color: #f3f3f3");
+        }
+        source.setStyle("-fx-background-color: #d6d6d6;");
+        openPlanButton.setDisable(false);
 
     }
 }

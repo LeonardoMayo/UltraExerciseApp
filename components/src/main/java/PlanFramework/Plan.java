@@ -1,6 +1,9 @@
 package PlanFramework;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author Jan Leppich
@@ -32,12 +35,6 @@ public class Plan {
     exerciseList.remove(exercise);
   }
 
-  public void changeExercisePositionInPlan (Exercise exercise){
-    /**
-     * Can be tinkered with when rest works
-     */
-  }
-
   public void addDateToPlan (String date){
     trainingDates.add(date);
   }
@@ -50,6 +47,22 @@ public class Plan {
   Methods to save Training data
    */
   public void saveExerciseSets (Exercise exercise, String Set){
+
+  }
+
+  public void newTraining(Plan plan) {
+
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    Date currentDate = new Date();
+    String date = dateFormat.format(currentDate);
+
+    plan.addDateToPlan(date);
+
+    for (int i = 0; i < plan.getExerciseList().size(); i++) {
+      Exercise exercise = plan.getExerciseList().get(i);
+      Set set = new Set(date, exercise, plan);
+      exercise.addSetToExercise(set);
+    }
 
   }
 

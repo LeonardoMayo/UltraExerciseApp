@@ -78,7 +78,7 @@ public class PlansToFile {
         //e.printStackTrace();
       }
 
-      if (trainingDatesList && !(line.contains("::"))){
+      if (trainingDatesList && !((line.contains("::")) || line.contains("Exercises: "))){
         trainingDates.add(line);
       }
       if (exerciseList && !(line.contains("::"))){

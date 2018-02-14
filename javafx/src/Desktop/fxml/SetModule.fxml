@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="motherPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Desktop.controller.SetModuleController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="60.0" prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst1" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond1" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird1" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="120.0" prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst2" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond2" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird2" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="180.0" prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst3" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond3" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird3" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="240.0" prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst4" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond4" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird4" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="300.0" prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst5" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond5" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird5" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="360.0" prefHeight="60.0" prefWidth="130.0">
+         <children>
+            <Label layoutX="41.0" layoutY="29.0" text="/" />
+            <Label layoutX="82.0" layoutY="30.0" text="/" />
+            <Label fx:id="RepFirst6" layoutX="9.0" layoutY="31.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep1" />
+            <Label fx:id="RepSecond6" layoutX="50.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep2" />
+            <Label fx:id="RepThird6" layoutX="93.0" layoutY="30.0" onMouseClicked="#changeRepCount" onTouchReleased="#changeRepCount" text="Rep3" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -37,9 +37,14 @@ public class ReadTest {
 //
 //        }
 
+
+
         Profile user = profileWriter.readProfile("MasterBeater69");
+        planWriter.setCurrentUser(user);
+        exerciseWriter.setCurrentUser(user);
         for (int i = 0; i < user.getPlanList().size() ; i++) {
             Plan plan = planWriter.readPlan(user.getPlanList().get(i).getName());
+            exerciseWriter.setCurrentPlan(plan);
             for (int j = 0; j < plan.getExerciseList().size(); j++) {
                 String name = plan.getExerciseList().get(j).getName();
                 Exercise exercise = exerciseWriter.readExercise(name);
@@ -47,6 +52,7 @@ public class ReadTest {
             }
             user.getPlanList().set(i, plan);
         }
+        printLoadedProfileData(user);
     }
 
     public Profile loadCompleteProfile (String profileName) throws IOException{
@@ -71,6 +77,8 @@ public class ReadTest {
         for (int i = 0; i < user.getPlanList().size() ; i++) {
             Plan plan = user.getPlanList().get(i);
             System.out.println(plan.getName());
+            System.out.println(plan.getExerciseList());
+            System.out.println(plan.getTrainingDates());
             System.out.println("Übungen: "+ plan.getExerciseList().size());
             for (int j = 0; j < plan.getExerciseList().size(); j++) {
                 String nameExercise = plan.getExerciseList().get(j).getName();
